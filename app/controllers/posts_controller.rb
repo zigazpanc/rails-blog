@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :can_access?, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
 
   # GET /posts
@@ -67,6 +68,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def can_access?
+      redirect_back fallback_location: root_path, alert: 'You shall not pass!' unless @post.user == current_user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
