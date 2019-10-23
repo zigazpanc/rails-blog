@@ -7,6 +7,10 @@
   <strong>Opis:</strong>
   <%= @post.opis %>
 </p>
+<p>
+  <strong>Napisal:</strong>
+  <%= @post.user.name %>
+</p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
