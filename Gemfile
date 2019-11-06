@@ -31,6 +31,8 @@ gem 'commontator' # doda možnost komentiranja
 gem 'jquery-rails' # dependant za commontator
 gem 'sassc-rails'# dependant za commontator
 
+gem 'bootstrap', '~> 4.3.1' # vtičnik za bootstrap
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
