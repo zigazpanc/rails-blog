@@ -1,20 +1,23 @@
-<%= link_to 'Domov', root_path %>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  <%= current_user.email %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path) %>
-  </li>
-<% end %>
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Register', new_user_registration_path) %>
-  </li>
-<% end %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Domov', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+      <% if user_signed_in? %>
+        <%= link_to('Edit registration', edit_user_registration_path, class: 'nav-link') %>
+      <% else %>
+        <%= link_to('Register', new_user_registration_path, class: 'nav-link') %>
+      <% end %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'nav-link') %>
+        <% else %>
+          <%= link_to('Login', new_user_session_path, class: 'nav-link') %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
